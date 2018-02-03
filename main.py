@@ -7,7 +7,13 @@ cardOpr.shuffleDeck(deck)
 
 length=len(deck)
 while len(deck) >= 2:
-    index_choosen = int(input("User please choose your card from 1-%d: " %(length)))
+
+    while True:
+        index_choosen = int(input("User please choose your card from 1-%d: " %(length)))
+        if 1 <= index_choosen <= length:
+            break
+        print("Wrong choice!")
+
     card = deck.pop(index_choosen - 1)
     print("Your card is: ", card)
 
@@ -15,7 +21,7 @@ while len(deck) >= 2:
     card_computer = deck.pop()
     print("Computer Card is: ", card_computer)
 
-    if card < card_computer:
+    if card > card_computer:
         print("You Loose")
         break
 
